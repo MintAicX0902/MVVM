@@ -1,0 +1,134 @@
+body, html {
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+.resume {
+  max-width: 900px;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.resume-header {
+  margin-bottom: 0;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-image {
+  width: 120px;
+  height: 130px;
+  margin-left: 20px;
+}
+
+.personal-info {
+  text-align: center;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.personal-info h1 {
+  font-size: 24px;
+}
+
+.resume-sections section {
+  padding: 20px;
+}
+
+.resume-sections h2 {
+  font-size: 18px;
+  color: #333;
+}
+
+.job h3 {
+  margin-top: 0;
+}
+
+.work-experience ul li {
+  font-size: 14px;
+}
+
+ul {
+  padding-left: 0;    /* 去除ul的默认内边距 */
+  margin-left: 0;     /* 去除ul的默认外边距 */
+}
+
+ul li {
+  margin-top: 0;
+  padding: 0 ;
+  margin-bottom: 0;
+  margin-left: 20px;         /* 去除li的外边距 */
+}
+
+
+footer {
+  padding: 20px;
+  text-align: center;
+}
+
+.spacer::after,
+.grey-divider::before,
+.grey-divider::after {
+  content: '  '; /* 两个空格 */
+}
+
+.grey-divider {
+  color: #cdcdcd;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #232323;
+}
+
+.section-title h2 {
+  font-size: 18px;
+  color: #58a9b5;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.section-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.title-bar {
+  height: 2px;
+  background-color: #58a9b5;
+  width: 100%;
+}
+
+.section-divider {
+  border: none;
+  height: 2px;
+  background-color: #58a9b5;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-right {
+  margin-left: auto;
+}
+
+.color-gray {
+  color: #565356;
+}
