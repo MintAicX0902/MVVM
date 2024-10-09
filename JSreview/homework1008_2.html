@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>表格数据排序</title>
+  <script>
+    // 添加数据并排序
+    function addRow() {
+      const name = document.getElementById("nameInput").value;
+      const age = document.getElementById("ageInput").value;
+
+      if (name && age) {
+        const table = document.getElementById("myTable");
+        const row = table.insertRow(); // 添加新行
+        const cell1 = row.insertCell(0); // 姓名
+        const cell2 = row.insertCell(1); // 年龄
+        const cell3 = row.insertCell(2); // 操作按钮
+
+        cell1.innerHTML = name;
+        cell2.innerHTML = age;
+        cell3.innerHTML = '<button onclick="deleteRow(this)">删除</button>';
+
+        sortTableByAge(); // 添加后按年龄排序
+      }
+    }
+
+    // 删除行
+    function deleteRow(button) {
+      const row = button.parentNode.parentNode;
+      row.parentNode.removeChild(row); // 删除当前行
+      updateRowNumbers(); // 更新行号
+    }
+
+    // 按年龄排序
+    function sortTableByAge() {
+      const table = document.getElementById("myTable");
+      const rows = Array.from(table.rows).slice(1); // 获取表格的所有行（不包括表头）
+
+      rows.sort((a, b) => {
+        const ageA = parseInt(a.cells[1].innerText);
+        const ageB = parseInt(b.cells[1].innerText);
+        return ageA - ageB; // 升序排列
+      });
+
+      // 按排序后的顺序重新排列表格行
+      rows.forEach(row => table.appendChild(row));
+
+      updateRowNumbers(); // 更新行号
+    }
+
+    // 更新行号
+    function updateRowNumbers() {
+      const table = document.getElementById("myTable");
+      const rows = Array.from(table.rows).slice(1);
+
+      rows.forEach((row, index) => {
+        row.cells[2].innerHTML = `<button onclick="deleteRow(this)">删除</button>`;
+      });
+    }
+  </script>
+  <style>
+    table {
+      width: 50%;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #dfeefd;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    .add-button{
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <table id="myTable">
+    <tr>
+      <th>姓名</th>
+      <th>年龄</th>
+      <th>操作</th>
+    </tr>
+  </table>
+  <input type="text" id="nameInput" placeholder="姓名" />
+  <input type="number" id="ageInput" placeholder="年龄" />
+  <button id="addRow" class="add-button" onclick="addRow()">添加数据</button>
+</body>
+</html>
